@@ -1,5 +1,7 @@
 package com.test.spring;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,6 +14,8 @@ import com.auth0.spring.security.api.JwtWebSecurityConfigurer;
 @Configuration
 @EnableWebSecurity(debug = true)
 public class AppConfig extends WebSecurityConfigurerAdapter {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
 	
 	@Value(value = "${auth0.apiAudience}")
     private String apiAudience;
